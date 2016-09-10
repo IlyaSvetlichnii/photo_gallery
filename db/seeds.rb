@@ -10,3 +10,17 @@
 #     image: File.new(fixtures_path.join('cpu.jpg'))
 # )
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+
+jon = User.create!(name: 'Jon', email: 'jon@example.com', password: 'qwerty', password_confirmation: 'qwerty')
+bob = User.create!(name: 'Bob', email: 'bob@example.com', password: 'qwerty', password_confirmation: 'qwerty')
+
+cpu = Photo.create!(
+    caption: 'Intel Core i7',
+    image: File.new(fixtures_path.join('cpu.jpg'))
+)
+hdd= Photo.create!(
+    caption: 'hdd',
+    image: File.new(fixtures_path.join('hdd.jpg'))
+)
+
