@@ -1,4 +1,16 @@
-<% @photos.each do |f| %>
-  <% f.name %>
-<% end %>
+<%= link_to "create", new_photo_path %>
 
+<div>
+<% @photos.each do |f| %>
+  <%= f.caption %>
+  <%= f.image %>
+<% end %>
+</div>
+
+<div class="col-md-6 col-md-offset-3">
+           <%=  link_to photo.user.name, profile_path(photo.user.name) %>
+            <%= link_to (image_tag photo.image.url(:medium), class:'img-responsive'), photo_path(photo) %>
+              <%= photo.caption %>           
+	<hr/>
+
+</div>
