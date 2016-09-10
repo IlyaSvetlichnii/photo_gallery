@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# cpu = Photo.create!(
+#     caption: 'Intel',
+#     image: File.new(fixtures_path.join('cpu.jpg'))
+# )
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

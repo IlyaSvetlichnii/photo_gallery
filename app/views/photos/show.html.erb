@@ -1,0 +1,46 @@
+<div class="photos-wrapper row">
+  <div class="photo">
+    <div class="photo-head">
+      <div class="name">
+        <%= @photo.user.name %>
+      </div>
+    </div>
+      <div class="image center-block">
+        <%=image_tag @photo.image.url(:medium) %>
+      </div>
+      
+      <p class="caption">
+        <%= @photo.caption %>
+      </p>
+
+     <p>Average score <%= Comment.average(:rating) %></p>
+      <p>Add comment</p>
+
+      <%= simple_form_for([@photo, @photo.comments.build]) do |f| %>
+        <div class="field">
+          <%= f.text_area :content, placeholder: "Comment..." %>
+        </div>
+        <%= f.input :rating, placeholder: "1-5" %>
+        <%= f.submit "photo", class: "btn btn-primary" %>
+
+      <% end %>
+      
+      <p>Comments</p>
+  
+      <% if @photo.comments %>
+              <% @photo.comments.each do |comment| %>
+                    <%= comment.rating %>
+                    <%= comment.user %>
+                    <%= comment.content %>
+                    <% if comment.user == current_user %>
+                      <%= link_to "delete", photo_comment_path(@photo, comment),
+                                                  method: :delete, 
+                                                  data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                  </div>
+              <% end %>
+              </div>
+      <% end %>
+      
+  </div>
+</div>

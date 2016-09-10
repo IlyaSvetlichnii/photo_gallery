@@ -26,4 +26,4 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'activeadmin', '~> 1.0.0.pre4'
-
+gem 'faker'
