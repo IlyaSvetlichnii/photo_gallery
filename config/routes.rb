@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
 
   ActiveAdmin.routes(self)
 
   root "photos#index"
   resources :photos
-
+  get ':name', to: 'profiles#show', as: :profile 
   
   devise_for :users
 
